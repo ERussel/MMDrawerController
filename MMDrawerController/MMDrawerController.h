@@ -166,6 +166,13 @@ typedef void (^MMDrawerControllerDrawerVisualStateBlock)(MMDrawerController * dr
 @property (nonatomic, assign) BOOL shouldStretchDrawer;
 
 /**
+ *  Flag states whether left drawer controller should be resized to match visible drawer frame.
+ *
+ *  By default NO and left controller is displayed full width.
+ */
+@property (nonatomic, assign) BOOL shouldResizeLeftDrawerController;
+
+/**
  The current open side of the drawer. 
  
  Note this value will change as soon as a pan gesture opens a drawer, or when a open/close animation is finished.

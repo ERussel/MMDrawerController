@@ -967,6 +967,16 @@ static NSString *MMDrawerOpenSideKey = @"MMDrawerOpenSide";
     [self.view setUserInteractionEnabled:!animatingDrawer];
 }
 
+- (void)setShouldResizeLeftDrawerController:(BOOL)shouldResizeLeftDrawerController{
+    if (_shouldResizeLeftDrawerController != shouldResizeLeftDrawerController) {
+        _shouldResizeLeftDrawerController = shouldResizeLeftDrawerController;
+        
+        // update left drawer frame
+        UIViewController *leftDrawerController = [self sideDrawerViewControllerForSide:MMDrawerSideLeft];
+        [leftDrawerController.view setFrame:leftDrawerController.mm_visibleDrawerFrame];
+    }
+}
+
 #pragma mark - Getters
 -(CGFloat)maximumLeftDrawerWidth{
     if(self.leftDrawerViewController){
